@@ -4,6 +4,14 @@
 <%= @user.fname %>
 <%= @user.lname %>
 <br>
+<%= @user.username %>
+<br>
 <%= flash[:notice] if flash[:notice] %>
-
-<%= link_to('Delete User', controller: 'users', action: 'destroy') %>
+<br>
+<%= link_to('Edit', controller: 'users', action: 'edit') %>
+<br>
+<%= link_to('Post', controller: 'posts', action: 'index') %>
+<br>
+<%= link_to('Logout', controller: 'sessions', action: 'destroy') %>
+<br>
+<%= link_to('Delete', "/users/#{@user.id}", :method => :delete) %>
