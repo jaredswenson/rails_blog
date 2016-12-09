@@ -1,0 +1,39 @@
+class UsersController < ApplicationController
+  def index
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      flash[:notice] = "Your account was created successfully."
+      redirect_to user_path @user
+    else
+      flash[:alert] = "There was a problem saving your account."
+      redirect_to new_user_path
+    end
+  end
+
+  def new
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    puts "New params: #{params.inspect}"
+  end
+
+  def show
+     @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id]).update_attributes(params[:user])
+    puts "These are the params #{params.inspect}"
+    redirect_to user_path 
+  end
+
+  def destroy
+    User.delete
+    redirect_to user_path @user
+  end
+end
