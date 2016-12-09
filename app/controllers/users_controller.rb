@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.delete
-    redirect_to user_path @user
+    puts "Deleting user: #{params.inspect}"
+     redirect_to users_path
   end
 end
