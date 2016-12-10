@@ -31,3 +31,6 @@ edit_userfriend GET    /userfriends/:id/edit(.:format) userfriends#edit
                 PATCH  /userfriends/:id(.:format)      userfriends#update
                 PUT    /userfriends/:id(.:format)      userfriends#update
                 DELETE /userfriends/:id(.:format)      userfriends#destroy
+          login GET    /login(.:format)                sessions#new
+                POST   /login(.:format)                sessions#create
+         logout GET    /logout(.:format)               sessions#destroy

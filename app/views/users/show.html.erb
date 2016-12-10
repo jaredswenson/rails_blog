@@ -15,3 +15,10 @@
 <%= link_to('Logout', controller: 'sessions', action: 'destroy') %>
 <br>
 <%= link_to('Delete', "/users/#{@user.id}", :method => :delete) %>
+<br>
+<%= @user.posts.each do |post| %>
+	<%= post.content %>
+	<br>
+	_______________________________
+	<br>
+<% end %>
