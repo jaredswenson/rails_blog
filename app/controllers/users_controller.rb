@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      session[:user_id] = @user.id
       flash[:notice] = "Your account was created successfully."
       redirect_to user_path @user
     else
@@ -33,7 +34,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    puts "Deleting user: #{params.inspect}"
-     redirect_to users_path
+    puts ": #{params.inspect}"
+    current_user.destroy
+    redirect_to users_path
   end
 end

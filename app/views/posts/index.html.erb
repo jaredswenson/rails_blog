@@ -3,6 +3,13 @@
 
 <%= form_for @post do |f| %>
 	<%= f.label :content, "New Post"%>
-	<%= f.text_field :content %>
+	<%= f.text_area :content %>
 	<%= f.submit %>
+<% end %>
+
+<%= @posts.each do |post| %>
+	<%= post.content %>
+	<br>
+	<hr>
+	<br>
 <% end %>
