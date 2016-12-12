@@ -1,2 +1,6 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<%= form_for [@user, @comment] do |f| %>
+	<%= hidden_field_tag "post_id", @post_id %>
+	<%= f.label :content, "New Comment"%>
+	<%= f.text_area :content %>
+	<%= f.submit %>
+<% end %>

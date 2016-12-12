@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
   def index
+    @user = current_user
     @post = Post.new
-    @posts = Post.all
+    @posts = @user.posts
   end
 
   def create
     Post.create(content: params[:post][:content], user_id: current_user.id)
     puts "#{params.inspect}"
-    redirect_to posts_path
+    redirect_to user_posts_path
 
   end
 

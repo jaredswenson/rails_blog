@@ -1,24 +1,22 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<hr>
+<%= link_to('Logged In User Home Page', "#{request.base_url}/users/#{@current.id}", :class => "btn") %>
+<hr>
+Name: <%= @user.fname + " " + @user.lname %>
+<h1>Friends</h1>
+<% @user.user_friends.each do |friend| %>
+ <%= User.find(friend.friend_id).username %>
+ <%= link_to('Visit Page', "#{request.base_url}/users/#{friend.friend_id}", :class => "btn") %>
+ <%= link_to('Unfollow', user_userfriend_path(@user, friend), method: :delete, :class => "btn") %>
+<hr>
+<% end %>
+<br>
+Username: <%= @user.username %>
 
-<%= @user.fname %>
-<%= @user.lname %>
-<br>
-<%= @user.username %>
-<br>
-<%= flash[:notice] if flash[:notice] %>
-<br>
-<%= link_to('Edit', controller: 'users', action: 'edit') %>
-<br>
-<%= link_to('Post', controller: 'posts', action: 'index') %>
-<br>
-<%= link_to('Logout', controller: 'sessions', action: 'destroy') %>
-<br>
-<%= link_to('Delete', "/users/#{@user.id}", :method => :delete) %>
-<br>
-<%= @user.posts.each do |post| %>
-	<%= post.content %>
-	<br>
-	_______________________________
-	<br>
+<% @user.posts.each do |post| %>
+	<h1 class="post"><%= post.content %></h1>
+	<%= link_to('Comment', "#{request.base_url}/users/#{@user.id}/comments?post_id=#{post.id}", :class => "btn") %>
+		<% post.comments.each do |comment| %>
+		 <p class="comment"><%= comment.content %></p>
+		<% end %>
+	<hr>
 <% end %>

@@ -1,6 +1,6 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
-
+<hr>
 <%= form_for @user, html: {method: :put} do |f| %>
 	<%= f.label :fname, "First Name"%>
 	<%= f.text_field :fname %>
@@ -12,4 +12,5 @@
 	<%= f.password_field :password %>
 	<%= f.submit %>
 <% end %>
-
+<hr>
+<%= link_to('Delete', "#{request.base_url}/users/#{@user.id}", :method => :delete, :class => "btn") %>

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :users
-  resources :posts
-  resources :comments
-  resources :userfriends
-
+  resources :users do
+	  resources :posts
+	  resources :comments
+	  resources :userfriends
+	end
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'

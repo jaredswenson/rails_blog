@@ -9,7 +9,18 @@
   </head>
 
   <body>
-
+  	<div id="head">
+  	<%if @user %>
+		<%= link_to('Home Page', "#{request.base_url}/users/#{@user.id}", :class => "btn", :id => "home") %>
+		<%= link_to('Edit', "#{request.base_url}/users/#{@user.id}/edit", :class => "btn") %>
+		<%= link_to('Post', "#{request.base_url}/users/#{@user.id}/posts", :class => "btn") %>
+		<%= link_to('All Users', "#{request.base_url}/users/#{@user.id}/userfriends", :class => "btn") %>
+		<%= link_to('Logout', "#{request.base_url}/logout", :class => "btn") %>
+	<% else %>
+		<%= link_to('Login', "#{request.base_url}/login", :class => "btn") %>
+		<%= link_to('Create Account', "#{request.base_url}/users", :class => "btn") %>
+	<% end %>
+	</div>
     <%= yield %>
   </body>
 </html>
