@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     Post.create(content: params[:post][:content], user_id: current_user.id)
     puts "#{params.inspect}"
     redirect_to user_posts_path
-
+    # creates new post on the post.id with user.id
   end
 
   def new

@@ -9,7 +9,7 @@ class UserfriendsController < ApplicationController
 
   def new
     @friend = UserFriend.create(friend_id: params[:user_id], user_id: current_user.id)
-    redirect_to user_path current_user
+    redirect_to user_path current_user 
   end
 
   def edit

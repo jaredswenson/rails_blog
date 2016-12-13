@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     else
       redirect_to login_path
     end
+    # creates session on log in
   end
 
   def new
@@ -29,6 +30,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    # logs user out
     redirect_to login_path
   end
 end
