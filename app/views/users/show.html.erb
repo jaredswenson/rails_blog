@@ -1,16 +1,16 @@
 <hr>
-<%= link_to('Logged In User Home Page', "#{request.base_url}/users/#{@current.id}", :class => "btn") %>
+<%= link_to('User Home Page', "#{request.base_url}/users/#{@current.id}", :class => "btn") %>
 <hr>
-Name: <%= @user.fname + " " + @user.lname %>
+<h1><%= @user.fname + " " + @user.lname %></h1>
+<hr>
 <h1>Friends</h1>
 <% @user.user_friends.each do |friend| %>
- <%= User.find(friend.friend_id).username %>
+ <h1><%= User.find(friend.friend_id).username %></h1>
  <%= link_to('Visit Page', "#{request.base_url}/users/#{friend.friend_id}", :class => "btn") %>
  <%= link_to('Unfollow', user_userfriend_path(@user, friend), method: :delete, :class => "btn") %>
-<hr>
 <% end %>
-<br>
-Username: <%= @user.username %>
+<hr>
+<h1><%= @user.username %></h1>
 
 <% @user.posts.each do |post| %>
 	<h1 class="post"><%= post.content %></h1>

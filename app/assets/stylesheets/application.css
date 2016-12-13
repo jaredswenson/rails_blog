@@ -27,7 +27,8 @@ body{
 }
 
 .btn:hover{
-	color: white;
+	background-color: yellow;
+	color: green;
 }
 
 
