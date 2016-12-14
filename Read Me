@@ -1,1 +1,9 @@
-Read Me
+Once logged in buttons on nav change to more relevent buttons
+
+can Log in, create account, logout, edit account and delete account in edit page
+
+Can make posts and comment on posts
+
+Can follow other users and unfollow them if you don't want to follow any longer
+
+Also when you follow a user on the "current users" home page they can visit the page of the users they are following.

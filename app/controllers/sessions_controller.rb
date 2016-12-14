@@ -33,4 +33,6 @@ class SessionsController < ApplicationController
     # logs user out
     redirect_to login_path
   end
+
+  
 end

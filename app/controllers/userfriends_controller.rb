@@ -25,4 +25,9 @@ class UserfriendsController < ApplicationController
     UserFriend.find(params[:id]).destroy
     redirect_to user_path current_user
   end
+
+  private
+  def userfriends_params
+    params.require(:user).permit(:user_id, :friend_id)
+  end
 end

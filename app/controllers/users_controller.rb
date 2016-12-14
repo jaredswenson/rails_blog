@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def edit
@@ -46,4 +47,10 @@ class UsersController < ApplicationController
     # deletes current user
     redirect_to users_path
   end
+
+  private
+  def user_params
+    params.require(:user).permit(:fname, :lname, :username, :password)
+  end
+
 end
